@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h1>Users</h1>
+
+    <div class="table-responsive">
+        {% if users %}
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>There are currently no users.</p>
+        {% endif %}
+    </div>
+{% endblock %}
