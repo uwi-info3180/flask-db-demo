@@ -1,2 +1,2 @@
-# flask_starter
-Starter code for a new Flask Application
+# Example Database app
+This is an example database app using PostgreSQL, Flask-SQLAlchemy and Flask-Migrate
