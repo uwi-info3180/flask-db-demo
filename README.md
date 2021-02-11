@@ -11,3 +11,37 @@ To begin using this app you can do the following:
 5. Edit the `app/__init__.py` file and enter your database credentials and database name.
 6. Run the migrations by typing `python flask-migrate.py db upgrade`
 7. Start the development server using `python run.py`.
+
+## Separate Config file
+
+I have included a separate config file `app/config.py` that can be used for setting up
+configuration for different environments e.g. Development and Production
+
+Edit `app/__init__.py` and uncomment the following lines:
+
+```python
+# from .config import Config
+...
+# app.config.from_object(Config)
+```
+
+Using the separate config file will also require you to set environment variables on your local computer or server at the command line. For example on Linux or MacOS:
+
+```bash
+export SECRET_KEY="my-super-secret-key"
+export SQLALCHEMY_DATABASE_URI="postgresql://yourusername:yourpassword@localhost/databasename"
+```
+
+Or on Windows:
+
+```powershell
+set SECRET_KEY="my-super-secret-key"
+set SQLALCHEMY_DATABASE_URI="postgresql://yourusername:yourpassword@localhost/databasename"
+```
+
+And on Heroku:
+
+```bash
+heroku config:set SECRET_KEY="my-super-secret-key"
+heroku config:set SQLALCHEMY_DATABASE_URI="postgresql://yourusername:yourpassword@localhost/databasename"
+```
