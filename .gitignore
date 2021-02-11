@@ -10,6 +10,9 @@ __pycache__
 .venv/
 venv/
 
+# dotenv
+.env
+
 # PyCharm
 .idea
 
