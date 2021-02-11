@@ -7,7 +7,7 @@ This file creates your application.
 
 from app import app
 from flask import render_template, request, redirect, url_for, flash
-from models import User
+from .models import User
 
 
 ###
