@@ -29,19 +29,23 @@ Using the separate config file will also require you to set environment variable
 
 ```bash
 export SECRET_KEY="my-super-secret-key"
-export SQLALCHEMY_DATABASE_URI="postgresql://yourusername:yourpassword@localhost/databasename"
+export DATABASE_URL="postgresql://yourusername:yourpassword@localhost/databasename"
 ```
 
 Or on Windows:
 
 ```powershell
 set SECRET_KEY="my-super-secret-key"
-set SQLALCHEMY_DATABASE_URI="postgresql://yourusername:yourpassword@localhost/databasename"
+set DATABASE_URL="postgresql://yourusername:yourpassword@localhost/databasename"
 ```
 
 And on Heroku:
 
 ```bash
 heroku config:set SECRET_KEY="my-super-secret-key"
-heroku config:set SQLALCHEMY_DATABASE_URI="postgresql://yourusername:yourpassword@localhost/databasename"
+heroku config:set DATABASE_URL="postgresql://yourusername:yourpassword@localhost/databasename"
 ```
+
+### .env Files
+
+You can also create a `.env` file in the root of your project and add your Environment variables there. See `.env.sample` as an example. The `config.py` file is already setup to automatically load the `.env` file.
