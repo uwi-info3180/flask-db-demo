@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    <h1>Users <a href="{{ url_for('new_user')}}" class="btn btn-primary">Add User</a></h1>
+    <section class="d-flex justify-content-between align-items-center">
+        <h1>Users</h1>
+        <a href="{{ url_for('new_user')}}" class="btn btn-sm btn-primary">Add User</a>
+    </section>
+
+    {% include 'flash_messages.html' %}
 
     <div class="table-responsive">
         {% if users %}

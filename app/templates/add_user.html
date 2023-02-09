@@ -2,7 +2,7 @@
 
 {% block main %}
     <h1>New User Form</h1>
-
+    {% include 'flash_messages.html' %}
     <form action="{{ url_for('new_user') }}" method="post">
         {{ form.csrf_token }}
         <div class="form-group mb-3">

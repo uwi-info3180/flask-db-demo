@@ -37,15 +37,25 @@ def new_user():
         db.session.add(user)
         db.session.commit()
 
-        flash('User successfully added!')
+        flash('User successfully added!', 'success')
         redirect(url_for('users'))
 
+    flash_errors(new_user_form)
     return render_template('add_user.html', form=new_user_form)
 
 
 ###
 # The functions below should be applicable to all Flask apps.
 ###
+
+# Flash errors from the form if validation fails
+def flash_errors(form):
+    for field, errors in form.errors.items():
+        for error in errors:
+            flash(u"Error in the %s field - %s" % (
+                getattr(form, field).label.text,
+                error
+            ), 'danger')
 
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):
@@ -70,7 +80,3 @@ def add_header(response):
 def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
-
-
-if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0", port="8080")
