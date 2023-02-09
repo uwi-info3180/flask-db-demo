@@ -1,13 +1,7 @@
-"""
-Flask Documentation:     http://flask.pocoo.org/docs/
-Jinja2 Documentation:    http://jinja.pocoo.org/2/documentation/
-Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
-This file creates your application.
-"""
-
-from app import app
+from app import app, db
 from flask import render_template, request, redirect, url_for, flash
 from .models import User
+from .forms import UserForm
 
 
 ###
@@ -30,6 +24,23 @@ def users():
     users = User.query.all()
 
     return render_template('users.html', users=users)
+
+@app.route('/users/new', methods=['post', 'get'])
+def new_user():
+    new_user_form = UserForm()
+    if new_user_form.validate_on_submit():
+        username = new_user_form.username.data
+        email = new_user_form.email.data
+        password = new_user_form.password.data
+
+        user = User(username, email, password)
+        db.session.add(user)
+        db.session.commit()
+
+        flash('User successfully added!')
+        redirect(url_for('users'))
+
+    return render_template('add_user.html', form=new_user_form)
 
 
 ###
