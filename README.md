@@ -2,6 +2,14 @@
 
 This is an example database app using PostgreSQL, Flask-SQLAlchemy and Flask-Migrate
 
+You will need to ensure you install PostgreSQL on your computer. You can do so by installing PostgreSQL from the link below and following the instructions:
+
+<https://www.postgresql.org/download/>
+
+When installing PostgreSQL, select the **PostgreSQL Server**, **pgAdmin 4** and **Command Line Tools** components. Ensure you deselect the _Stack Builder_ component during the installation as it is not necessary for this course.
+
+Create a database and ensure you have a database user that you can use to connect to the database.
+
 To begin using this app you can do the following:
 
 1. Clone the repository to your local machine.
