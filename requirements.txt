@@ -17,6 +17,6 @@ MarkupSafe==2.1.2
 psycopg2==2.9.5
 python-dotenv==0.21.1
 SQLAlchemy==1.4.31
-Werkzeug==2.2.2
+Werkzeug==2.2.3
 WTForms==3.0.1
 zipp==3.12.1
